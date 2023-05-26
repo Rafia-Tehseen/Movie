@@ -1,0 +1,2276 @@
+@prefix : <http://www.movieonto.org#> .
+@prefix dt: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix www: <http://www.movieonto.org#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix schema1: <http://schema.org/> .
+@prefix schema2: <http://schema.org/> .
+@prefix untitled-ontology-10: <http://www.semanticweb.org/khurram/ontologies/2023/4/untitled-ontology-10#> .
+@prefix untitled-ontology-101: <http://www.semanticweb.org/ali/ontologies/2022/6/untitled-ontology-10#> .
+@base <http://www.movieonto.org> .
+
+<http://www.movieonto.org> rdf:type owl:Ontology ;
+                            dt:contributor "Tayyaba Akram" ;
+                            rdfs:comment "To recommend movies related to different age groups and suggest alternative options for actors."@en ;
+                            rdfs:label "Movie Recommendation Ontology"@en ;
+                            rdfs:seeAlso "https://raw.githubusercontent.com/Anum61/FinalOnto/main/Wedding_ThesisFinal"@en .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/contributor
+dt:contributor rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.movieonto.org#actedIn
+www:actedIn rdf:type owl:ObjectProperty ;
+            owl:inverseOf www:hasActors ;
+            rdfs:domain www:Actor ;
+            rdfs:range schema2:Movie ;
+            rdfs:label "actedIn" .
+
+
+###  http://www.movieonto.org#awardedAt
+www:awardedAt rdf:type owl:ObjectProperty ;
+              rdfs:domain www:Award ;
+              rdfs:range www:AwardCeremony ;
+              rdfs:label "awardedAt" .
+
+
+###  http://www.movieonto.org#awardedIn
+www:awardedIn rdf:type owl:ObjectProperty ;
+              rdfs:domain www:AwardedMovie ;
+              rdfs:range www:Year ;
+              rdfs:label "awardedIn" .
+
+
+###  http://www.movieonto.org#belongsTo
+www:belongsTo rdf:type owl:ObjectProperty ;
+              rdfs:domain schema2:Movie ;
+              rdfs:range www:FilmIndustry ;
+              rdfs:label "belongsTo" .
+
+
+###  http://www.movieonto.org#cinematographyBy
+www:cinematographyBy rdf:type owl:ObjectProperty ;
+                     rdfs:domain schema2:Movie ;
+                     rdfs:range www:Cinematographer ;
+                     rdfs:label "cinematographyBy" .
+
+
+###  http://www.movieonto.org#directed
+www:directed rdf:type owl:ObjectProperty ;
+             owl:inverseOf www:directedBy ;
+             rdfs:domain www:Director ;
+             rdfs:range schema2:Movie ;
+             rdfs:label "directed" .
+
+
+###  http://www.movieonto.org#directedBy
+www:directedBy rdf:type owl:ObjectProperty ;
+               rdfs:domain schema2:Movie ;
+               rdfs:range www:Director ;
+               rdfs:label "directedBy" .
+
+
+###  http://www.movieonto.org#hasActors
+www:hasActors rdf:type owl:ObjectProperty ;
+              rdfs:domain schema2:Movie ;
+              rdfs:range www:Actor ;
+              rdfs:label "hasActors" .
+
+
+###  http://www.movieonto.org#hasAudience
+www:hasAudience rdf:type owl:ObjectProperty ;
+                rdfs:domain schema2:Movie ;
+                rdfs:range schema2:Audience ;
+                rdfs:label "hasAudience" .
+
+
+###  http://www.movieonto.org#hasBudget
+www:hasBudget rdf:type owl:ObjectProperty ;
+              rdfs:domain schema2:Movie ;
+              rdfs:range www:Budget ;
+              rdfs:label "hasBudget" .
+
+
+###  http://www.movieonto.org#hasCastAndCrew
+www:hasCastAndCrew rdf:type owl:ObjectProperty ;
+                   rdfs:domain schema2:Movie ;
+                   rdfs:range schema2:Person ;
+                   rdfs:label "hasCastAndCrew" .
+
+
+###  http://www.movieonto.org#hasCastingDirector
+www:hasCastingDirector rdf:type owl:ObjectProperty ;
+                       rdfs:domain schema2:Movie ;
+                       rdfs:range www:CastingDirector ;
+                       rdfs:label "hasCastingDirector" .
+
+
+###  http://www.movieonto.org#hasCertification
+www:hasCertification rdf:type owl:ObjectProperty ;
+                     rdfs:domain schema2:Movie ;
+                     rdfs:range www:Certification ;
+                     rdfs:label "hasCertification" .
+
+
+###  http://www.movieonto.org#hasCity
+www:hasCity rdf:type owl:ObjectProperty ;
+            rdfs:domain schema2:Country ;
+            rdfs:range schema2:City ;
+            rdfs:label "hasCity" .
+
+
+###  http://www.movieonto.org#hasDuration
+www:hasDuration rdf:type owl:ObjectProperty ;
+                rdfs:domain schema2:Movie ;
+                rdfs:range schema2:Duration ;
+                rdfs:label "hasDuration" .
+
+
+###  http://www.movieonto.org#hasEarning
+www:hasEarning rdf:type owl:ObjectProperty ;
+               rdfs:domain schema2:Movie ;
+               rdfs:range www:WorldWideEarning ;
+               rdfs:label "hasEarning" .
+
+
+###  http://www.movieonto.org#hasExecutiveProducer
+www:hasExecutiveProducer rdf:type owl:ObjectProperty ;
+                         rdfs:domain schema2:Movie ;
+                         rdfs:range www:ExecutiveProducer ;
+                         rdfs:label "hasExecutiveProducer" .
+
+
+###  http://www.movieonto.org#hasGenre
+www:hasGenre rdf:type owl:ObjectProperty ;
+             rdfs:domain schema2:Movie ;
+             rdfs:range www:Genre ;
+             rdfs:label "hasGenre" .
+
+
+###  http://www.movieonto.org#hasIMDBRating
+www:hasIMDBRating rdf:type owl:ObjectProperty ;
+                  rdfs:domain schema2:Movie ;
+                  rdfs:range www:IMDB ;
+                  rdfs:label "hasIMDBRating" .
+
+
+###  http://www.movieonto.org#hasIMDBReview
+www:hasIMDBReview rdf:type owl:ObjectProperty ;
+                  rdfs:domain schema2:Movie ;
+                  rdfs:range www:IMDBReview ;
+                  rdfs:label "hasIMDBReview" .
+
+
+###  http://www.movieonto.org#hasIntangibles
+www:hasIntangibles rdf:type owl:ObjectProperty ;
+                   rdfs:domain schema2:CreativeWork ;
+                   rdfs:range schema2:Intangible ;
+                   rdfs:label "hasIntangibles" .
+
+
+###  http://www.movieonto.org#hasLanguage
+www:hasLanguage rdf:type owl:ObjectProperty ;
+                rdfs:domain schema2:Movie ;
+                rdfs:range schema2:Language ;
+                rdfs:label "hasLanguage" .
+
+
+###  http://www.movieonto.org#hasMetaRating
+www:hasMetaRating rdf:type owl:ObjectProperty ;
+                  rdfs:domain schema2:Movie ;
+                  rdfs:range www:MetaCritic ;
+                  rdfs:label "hasMetaRating" .
+
+
+###  http://www.movieonto.org#hasMetaReview
+www:hasMetaReview rdf:type owl:ObjectProperty ;
+                  rdfs:domain schema2:Movie ;
+                  rdfs:range www:MetaCriticReview ;
+                  rdfs:label "hasMetaReview" .
+
+
+###  http://www.movieonto.org#hasOrganization
+www:hasOrganization rdf:type owl:ObjectProperty ;
+                    rdfs:domain schema2:CreativeWork ;
+                    rdfs:range schema2:Organization ;
+                    rdfs:label "hasOrganization" .
+
+
+###  http://www.movieonto.org#hasPhase1
+www:hasPhase1 rdf:type owl:ObjectProperty ;
+              rdfs:domain schema2:Movie ;
+              rdfs:range www:PreProduction ;
+              rdfs:label "hasPhase1" .
+
+
+###  http://www.movieonto.org#hasPhase2
+www:hasPhase2 rdf:type owl:ObjectProperty ;
+              rdfs:domain schema2:Movie ;
+              rdfs:range www:Production ;
+              rdfs:label "hasPhase2" .
+
+
+###  http://www.movieonto.org#hasPhase3
+www:hasPhase3 rdf:type owl:ObjectProperty ;
+              rdfs:domain schema2:Movie ;
+              rdfs:range www:PerformanceAnalysis ;
+              rdfs:label "hasPhase3" .
+
+
+###  http://www.movieonto.org#hasProductionHouse
+www:hasProductionHouse rdf:type owl:ObjectProperty ;
+                       rdfs:domain schema2:Movie ;
+                       rdfs:range www:ProductionCompany ;
+                       rdfs:label "hasProductionHouse" .
+
+
+###  http://www.movieonto.org#hasRating
+www:hasRating rdf:type owl:ObjectProperty ;
+              rdfs:domain schema2:Movie ;
+              rdfs:range schema2:Rating ;
+              rdfs:label "hasRating" .
+
+
+###  http://www.movieonto.org#hasReviews
+www:hasReviews rdf:type owl:ObjectProperty ;
+               rdfs:domain schema2:Movie ;
+               rdfs:range schema2:Review ;
+               rdfs:label "hasReviews" .
+
+
+###  http://www.movieonto.org#hasRottenRating
+www:hasRottenRating rdf:type owl:ObjectProperty ;
+                    rdfs:domain schema2:Movie ;
+                    rdfs:range www:RottenTomatoes ;
+                    rdfs:label "hasRottenRating" .
+
+
+###  http://www.movieonto.org#hasRottenReview
+www:hasRottenReview rdf:type owl:ObjectProperty ;
+                    rdfs:domain schema2:Movie ;
+                    rdfs:range www:RottenTomatoesReview ;
+                    rdfs:label "hasRottenReview" .
+
+
+###  http://www.movieonto.org#musicComposedBy
+www:musicComposedBy rdf:type owl:ObjectProperty ;
+                    rdfs:domain schema2:Movie ;
+                    rdfs:range www:MusicComposer ;
+                    rdfs:label "musicComposedBy" .
+
+
+###  http://www.movieonto.org#nominatedFor
+www:nominatedFor rdf:type owl:ObjectProperty ;
+                 rdfs:domain www:NominatedMovie ;
+                 rdfs:range www:Award ;
+                 rdfs:label "nominatedFor" .
+
+
+###  http://www.movieonto.org#nominatedIn
+www:nominatedIn rdf:type owl:ObjectProperty ;
+                rdfs:domain www:NominatedMovie ;
+                rdfs:range www:Year ;
+                rdfs:label "nominatedIn" .
+
+
+###  http://www.movieonto.org#produced
+www:produced rdf:type owl:ObjectProperty ;
+             owl:inverseOf www:producedBy ;
+             rdfs:domain www:Producer ;
+             rdfs:range schema2:Movie ;
+             rdfs:label "produced" .
+
+
+###  http://www.movieonto.org#producedBy
+www:producedBy rdf:type owl:ObjectProperty ;
+               rdfs:domain schema2:Movie ;
+               rdfs:range www:Producer ;
+               rdfs:label "producedBy" .
+
+
+###  http://www.movieonto.org#productionDesigner
+www:productionDesigner rdf:type owl:ObjectProperty ;
+                       rdfs:domain schema2:Movie ;
+                       rdfs:range www:ProductionDesigner ;
+                       rdfs:label "productionDesigner" .
+
+
+###  http://www.movieonto.org#releasedIn
+www:releasedIn rdf:type owl:ObjectProperty ;
+               rdfs:domain schema2:Movie ;
+               rdfs:range www:Year ;
+               rdfs:label "releasedIn" .
+
+
+###  http://www.movieonto.org#shootIn
+www:shootIn rdf:type owl:ObjectProperty ;
+            rdfs:domain schema2:Movie ;
+            rdfs:range schema2:Country ;
+            rdfs:label "shootIn" .
+
+
+###  http://www.movieonto.org#wonAward
+www:wonAward rdf:type owl:ObjectProperty ;
+             rdfs:domain www:AwardedMovie ;
+             rdfs:range www:Award ;
+             rdfs:label "wonAward" .
+
+
+###  http://www.movieonto.org#wonAwardIn
+www:wonAwardIn rdf:type owl:ObjectProperty ;
+               rdfs:domain schema2:CreativeWork ;
+               rdfs:range schema2:Event ;
+               rdfs:label "wonAwardin" .
+
+
+###  http://www.movieonto.org#writtenBy
+www:writtenBy rdf:type owl:ObjectProperty ;
+              rdfs:domain schema2:Movie ;
+              rdfs:range www:Writer ;
+              rdfs:label "writtenBy" .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://schema.org/abstract
+schema2:abstract rdf:type owl:DatatypeProperty ;
+                 rdfs:domain schema2:Movie ;
+                 rdfs:range xsd:string ;
+                 rdfs:label "schema:abstract" .
+
+
+###  http://www.movieonto.org#IMDBRating
+www:IMDBRating rdf:type owl:DatatypeProperty ;
+               rdfs:domain schema2:Movie ;
+               rdfs:range xsd:float ;
+               rdfs:label "IMDBRating" .
+
+
+###  http://www.movieonto.org#IMDBReview
+www:IMDBReview rdf:type owl:DatatypeProperty ;
+               rdfs:domain schema2:Movie ;
+               rdfs:range xsd:integer .
+
+
+###  http://www.movieonto.org#MetaCriticRating
+www:MetaCriticRating rdf:type owl:DatatypeProperty ;
+                     rdfs:domain schema2:Movie ;
+                     rdfs:range xsd:integer ;
+                     rdfs:label "MetaCriticRating" .
+
+
+###  http://www.movieonto.org#MetaCriticReview
+www:MetaCriticReview rdf:type owl:DatatypeProperty ;
+                     rdfs:domain schema2:Movie ;
+                     rdfs:range xsd:integer .
+
+
+###  http://www.movieonto.org#RottenTomatoesRatingInPercent
+www:RottenTomatoesRatingInPercent rdf:type owl:DatatypeProperty ;
+                                  rdfs:domain schema2:Movie ;
+                                  rdfs:range xsd:integer ;
+                                  rdfs:label "RottenTomatoesRatingInPercent" .
+
+
+###  http://www.movieonto.org#RottenTomatoesReview
+www:RottenTomatoesReview rdf:type owl:DatatypeProperty ;
+                         rdfs:domain schema2:Movie ;
+                         rdfs:range xsd:integer .
+
+
+###  http://www.movieonto.org#budget
+www:budget rdf:type owl:DatatypeProperty ;
+           rdfs:domain schema2:Movie ;
+           rdfs:range xsd:integer ;
+           rdfs:label "budget" .
+
+
+###  http://www.movieonto.org#category
+www:category rdf:type owl:DatatypeProperty ;
+             rdfs:domain www:Award ;
+             rdfs:range xsd:string ;
+             rdfs:label "category" .
+
+
+###  http://www.movieonto.org#earning
+www:earning rdf:type owl:DatatypeProperty ;
+            rdfs:domain schema2:Movie ;
+            rdfs:range xsd:integer ;
+            rdfs:label "earning" .
+
+
+###  http://www.movieonto.org#nominatedAward
+www:nominatedAward rdf:type owl:DatatypeProperty ;
+                   rdfs:domain schema2:Movie ;
+                   rdfs:range xsd:string ;
+                   rdfs:label "nominatedAward" .
+
+
+###  http://www.movieonto.org#releasingDate
+www:releasingDate rdf:type owl:DatatypeProperty ;
+                  rdfs:domain schema2:Movie ;
+                  rdfs:range xsd:string ;
+                  rdfs:label "releasingDate" .
+
+
+###  http://www.movieonto.org#winningAward
+www:winningAward rdf:type owl:DatatypeProperty ;
+                 rdfs:domain schema2:Movie ;
+                 rdfs:range xsd:string ;
+                 rdfs:label "winningAward" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://schema.org/Audience
+schema2:Audience rdf:type owl:Class ;
+                 rdfs:subClassOf www:PreProduction ;
+                 rdfs:label "schema:Audience" .
+
+
+###  http://schema.org/City
+schema2:City rdf:type owl:Class ;
+             rdfs:subClassOf schema2:Country ;
+             rdfs:label "schema:City" .
+
+
+###  http://schema.org/Country
+schema2:Country rdf:type owl:Class ;
+                rdfs:subClassOf schema2:Place ;
+                rdfs:label "schema:Country" .
+
+
+###  http://schema.org/CreativeWork
+schema2:CreativeWork rdf:type owl:Class ;
+                     rdfs:label "schema:CreativeWork" .
+
+
+###  http://schema.org/Duration
+schema2:Duration rdf:type owl:Class ;
+                 rdfs:subClassOf schema2:Intangible ;
+                 rdfs:label "schema:Duration" .
+
+
+###  http://schema.org/Event
+schema2:Event rdf:type owl:Class ;
+              rdfs:label "schema:Event" .
+
+
+###  http://schema.org/Intangible
+schema2:Intangible rdf:type owl:Class ;
+                   rdfs:label "schema:Intangible" .
+
+
+###  http://schema.org/Language
+schema2:Language rdf:type owl:Class ;
+                 rdfs:subClassOf schema2:Intangible ;
+                 rdfs:label "schema:Language" .
+
+
+###  http://schema.org/Movie
+schema2:Movie rdf:type owl:Class ;
+              rdfs:subClassOf schema2:CreativeWork ;
+              rdfs:label "schema:Movie" .
+
+
+###  http://schema.org/Organization
+schema2:Organization rdf:type owl:Class ;
+                     rdfs:label "schema:Organization" .
+
+
+###  http://schema.org/Person
+schema2:Person rdf:type owl:Class ;
+               rdfs:subClassOf www:PreProduction ;
+               rdfs:label "schema:Person" .
+
+
+###  http://schema.org/Place
+schema2:Place rdf:type owl:Class ;
+              rdfs:subClassOf www:Production ;
+              rdfs:label "schema:Place" .
+
+
+###  http://schema.org/Rating
+schema2:Rating rdf:type owl:Class ;
+               rdfs:subClassOf www:PerformanceAnalysis ;
+               owl:disjointWith www:Award ;
+               rdfs:label "schema:Rating" .
+
+
+###  http://schema.org/Review
+schema2:Review rdf:type owl:Class ;
+               rdfs:subClassOf www:PerformanceAnalysis ;
+               owl:disjointWith www:BoxOfficeEarning ;
+               rdfs:label "schema:Review" .
+
+
+###  http://www.movieonto.org#Actor
+www:Actor rdf:type owl:Class ;
+          rdfs:subClassOf schema2:Person ;
+          rdfs:label "Actor" .
+
+
+###  http://www.movieonto.org#Award
+www:Award rdf:type owl:Class ;
+          rdfs:subClassOf www:PerformanceAnalysis ;
+          rdfs:label "Award" .
+
+
+###  http://www.movieonto.org#AwardCeremony
+www:AwardCeremony rdf:type owl:Class ;
+                  rdfs:subClassOf schema2:Event ;
+                  rdfs:label "AwardCeremony" .
+
+
+###  http://www.movieonto.org#AwardedMovie
+www:AwardedMovie rdf:type owl:Class ;
+                 rdfs:subClassOf schema2:Movie ;
+                 rdfs:label "AwardedMovie" .
+
+
+###  http://www.movieonto.org#BoxOfficeEarning
+www:BoxOfficeEarning rdf:type owl:Class ;
+                     rdfs:subClassOf www:PerformanceAnalysis ;
+                     rdfs:label "BoxOfficeEarning" .
+
+
+###  http://www.movieonto.org#Budget
+www:Budget rdf:type owl:Class ;
+           rdfs:subClassOf www:PreProduction ;
+           rdfs:label "Budget" .
+
+
+###  http://www.movieonto.org#CastingDirector
+www:CastingDirector rdf:type owl:Class ;
+                    rdfs:subClassOf www:Director ;
+                    rdfs:label "CastingDirector" .
+
+
+###  http://www.movieonto.org#Certification
+www:Certification rdf:type owl:Class ;
+                  rdfs:subClassOf www:Production ;
+                  rdfs:label "Certification" .
+
+
+###  http://www.movieonto.org#Cinematographer
+www:Cinematographer rdf:type owl:Class ;
+                    rdfs:subClassOf schema2:Person ;
+                    rdfs:label "Cinematographer" .
+
+
+###  http://www.movieonto.org#Director
+www:Director rdf:type owl:Class ;
+             rdfs:subClassOf schema2:Person ;
+             rdfs:label "Director" .
+
+
+###  http://www.movieonto.org#ExecutiveProducer
+www:ExecutiveProducer rdf:type owl:Class ;
+                      rdfs:subClassOf www:Producer ;
+                      rdfs:label "ExecutiveProducer" .
+
+
+###  http://www.movieonto.org#FilmIndustry
+www:FilmIndustry rdf:type owl:Class ;
+                 rdfs:label "FilmIndustry" .
+
+
+###  http://www.movieonto.org#Genre
+www:Genre rdf:type owl:Class ;
+          rdfs:subClassOf www:PreProduction ;
+          rdfs:label "Genre" .
+
+
+###  http://www.movieonto.org#IMDB
+www:IMDB rdf:type owl:Class ;
+         rdfs:subClassOf schema2:Rating ;
+         rdfs:label "IMDB" .
+
+
+###  http://www.movieonto.org#IMDBReview
+www:IMDBReview rdf:type owl:Class ;
+               rdfs:subClassOf schema2:Review .
+
+
+###  http://www.movieonto.org#MetaCritic
+www:MetaCritic rdf:type owl:Class ;
+               rdfs:subClassOf schema2:Rating ;
+               rdfs:label "MetaCritic" .
+
+
+###  http://www.movieonto.org#MetaCriticReview
+www:MetaCriticReview rdf:type owl:Class ;
+                     rdfs:subClassOf schema2:Review .
+
+
+###  http://www.movieonto.org#MusicComposer
+www:MusicComposer rdf:type owl:Class ;
+                  rdfs:subClassOf schema2:Person ;
+                  rdfs:label "MusicComposer" .
+
+
+###  http://www.movieonto.org#NominatedMovie
+www:NominatedMovie rdf:type owl:Class ;
+                   rdfs:subClassOf schema2:Movie ;
+                   rdfs:label "NominatedMovie" .
+
+
+###  http://www.movieonto.org#PerformanceAnalysis
+www:PerformanceAnalysis rdf:type owl:Class ;
+                        rdfs:label "PerformanceAnalysis" .
+
+
+###  http://www.movieonto.org#PreProduction
+www:PreProduction rdf:type owl:Class ;
+                  rdfs:label "PreProduction" .
+
+
+###  http://www.movieonto.org#Producer
+www:Producer rdf:type owl:Class ;
+             rdfs:subClassOf schema2:Person ;
+             rdfs:label "Producer" .
+
+
+###  http://www.movieonto.org#Production
+www:Production rdf:type owl:Class ;
+               rdfs:label "Production" .
+
+
+###  http://www.movieonto.org#ProductionCompany
+www:ProductionCompany rdf:type owl:Class ;
+                      rdfs:subClassOf schema2:Organization ;
+                      rdfs:label "ProductionCompany" .
+
+
+###  http://www.movieonto.org#ProductionDesigner
+www:ProductionDesigner rdf:type owl:Class ;
+                       rdfs:subClassOf schema2:Person ;
+                       rdfs:label "ProductionDesigner" .
+
+
+###  http://www.movieonto.org#RottenTomatoes
+www:RottenTomatoes rdf:type owl:Class ;
+                   rdfs:subClassOf schema2:Rating ;
+                   rdfs:label "RottenTomatoes" .
+
+
+###  http://www.movieonto.org#RottenTomatoesReview
+www:RottenTomatoesReview rdf:type owl:Class ;
+                         rdfs:subClassOf schema2:Review .
+
+
+###  http://www.movieonto.org#WorldWideEarning
+www:WorldWideEarning rdf:type owl:Class ;
+                     rdfs:subClassOf www:BoxOfficeEarning ;
+                     rdfs:label "WorldWideEarning" .
+
+
+###  http://www.movieonto.org#Writer
+www:Writer rdf:type owl:Class ;
+           rdfs:subClassOf schema2:Person ;
+           rdfs:label "Writer" .
+
+
+###  http://www.movieonto.org#Year
+www:Year rdf:type owl:Class ;
+         rdfs:label "Year" .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.movieonto.org#AFCAAward
+www:AFCAAward rdf:type owl:NamedIndividual ,
+                       www:Award ;
+              www:awardedAt www:AustralianFilmCriticsAssociationAwards ;
+              www:category "Best Screenplay"^^xsd:string .
+
+
+###  http://www.movieonto.org#AbbyCraden
+www:AbbyCraden rdf:type owl:NamedIndividual ,
+                        www:Actor ;
+               www:actedIn www:Upgrade .
+
+
+###  http://www.movieonto.org#AcademyAwardUSA
+www:AcademyAwardUSA rdf:type owl:NamedIndividual ,
+                             www:AwardCeremony .
+
+
+###  http://www.movieonto.org#AcademyOfScienceFictionfantasyAndHorrorFilmsUSA
+www:AcademyOfScienceFictionfantasyAndHorrorFilmsUSA rdf:type owl:NamedIndividual ,
+                                                             www:AwardCeremony .
+
+
+###  http://www.movieonto.org#Action
+www:Action rdf:type owl:NamedIndividual ,
+                    www:Genre .
+
+
+###  http://www.movieonto.org#Adults
+www:Adults rdf:type owl:NamedIndividual ,
+                    schema2:Audience .
+
+
+###  http://www.movieonto.org#Adventure
+www:Adventure rdf:type owl:NamedIndividual ,
+                       www:Genre .
+
+
+###  http://www.movieonto.org#AlMashaelMovies
+www:AlMashaelMovies rdf:type owl:NamedIndividual ,
+                             www:ProductionCompany .
+
+
+###  http://www.movieonto.org#AndreaFazzini
+www:AndreaFazzini rdf:type owl:NamedIndividual ,
+                           www:Writer .
+
+
+###  http://www.movieonto.org#AndreaIervolino
+www:AndreaIervolino rdf:type owl:NamedIndividual ,
+                             www:ExecutiveProducer .
+
+
+###  http://www.movieonto.org#AndreaZoso
+www:AndreaZoso rdf:type owl:NamedIndividual ,
+                        www:ExecutiveProducer .
+
+
+###  http://www.movieonto.org#Animation
+www:Animation rdf:type owl:NamedIndividual ,
+                       www:Genre .
+
+
+###  http://www.movieonto.org#ArtiosAward
+www:ArtiosAward rdf:type owl:NamedIndividual ,
+                         www:AwardCeremony .
+
+
+###  http://www.movieonto.org#AstroBoy
+www:AstroBoy rdf:type owl:NamedIndividual ,
+                      www:NominatedMovie ;
+             www:belongsTo www:Hollywood ;
+             www:cinematographyBy www:PepeValencia ;
+             www:directedBy www:DavidBowers ;
+             www:hasActors www:CharlizeTheron ,
+                           www:FreddieHighmore ,
+                           www:KristenBell ,
+                           www:NicolasCage ;
+             www:hasAudience www:Kids ;
+             www:hasBudget <http://www.movieonto.org#$65000000> ;
+             www:hasCastingDirector www:LindaLamontagne ;
+             www:hasCertification www:PG ;
+             www:hasDuration <http://www.movieonto.org#1h34m> ;
+             www:hasEarning <http://www.movieonto.org#$39886986> ;
+             www:hasExecutiveProducer www:CecilKramer ,
+                                      www:FrancisKao ,
+                                      www:KenTsumura ,
+                                      www:PaulWang ;
+             www:hasGenre www:Action ,
+                          www:Adventure ,
+                          www:Animation ;
+             www:hasIMDBRating <http://www.movieonto.org#6.2> ;
+             www:hasIMDBReview <http://www.movieonto.org#96Reviews> ;
+             www:hasLanguage www:English ;
+             www:hasMetaRating <http://www.movieonto.org#53> ;
+             www:hasMetaReview <http://www.movieonto.org#22Reviews> ;
+             www:hasProductionHouse www:ImagiAnimationStudios ,
+                                    www:ImagiCrystal ,
+                                    www:SummitEntertainment ;
+             www:hasRottenRating <http://www.movieonto.org#50Percent> ;
+             www:hasRottenReview <http://www.movieonto.org#139Reviews> ;
+             www:musicComposedBy www:JohnOttman ;
+             www:nominatedFor www:BestPerformanceinVoiceOverRole ,
+                              www:OutstandingAchievementInCasting ;
+             www:nominatedIn <http://www.movieonto.org#2010> ;
+             www:producedBy www:MaryannGarger ;
+             www:productionDesigner www:SamMichlap ;
+             www:releasedIn <http://www.movieonto.org#2009> ;
+             www:writtenBy www:David ,
+                           www:TimothyHarris ;
+             schema2:abstract "When an android replica of a boy is rejected by his aggrieved creator, he goes off to find his own identity in an adventure that would make him the greatest hero of his time."^^xsd:string ;
+             www:IMDBRating "6.2"^^xsd:float ;
+             www:IMDBReview 96 ;
+             www:MetaCriticRating 53 ;
+             www:MetaCriticReview 22 ;
+             www:RottenTomatoesRatingInPercent 50 ;
+             www:RottenTomatoesReview 139 ;
+             www:budget 65000000 ;
+             www:earning 39886986 ;
+             www:nominatedAward "BestPerformanceinVoiceOverRole"^^xsd:string ,
+                                "OutstandingAchievementInCasting"^^xsd:string ;
+             www:releasingDate "February 5, 2010"^^xsd:string .
+
+
+###  http://www.movieonto.org#Austin
+www:Austin rdf:type owl:NamedIndividual ,
+                    schema2:City .
+
+
+###  http://www.movieonto.org#Australia
+www:Australia rdf:type owl:NamedIndividual ,
+                       schema2:Country ;
+              www:hasCity www:Craigieburn .
+
+
+###  http://www.movieonto.org#AustralianFilmCriticsAssociationAwards
+www:AustralianFilmCriticsAssociationAwards rdf:type owl:NamedIndividual ,
+                                                    www:AwardCeremony .
+
+
+###  http://www.movieonto.org#AutomatikEntertainment
+www:AutomatikEntertainment rdf:type owl:NamedIndividual ,
+                                    www:ProductionCompany .
+
+
+###  http://www.movieonto.org#BAFTAAwards
+www:BAFTAAwards rdf:type owl:NamedIndividual ,
+                         www:AwardCeremony .
+
+
+###  http://www.movieonto.org#BAFTAChildrensAward
+www:BAFTAChildrensAward rdf:type owl:NamedIndividual ,
+                                 www:Award ;
+                        www:awardedAt www:BAFTAAwards ;
+                        www:category "BAFTAKidsVote-FeatureFilm" .
+
+
+###  http://www.movieonto.org#BAFTAFilmAward
+www:BAFTAFilmAward rdf:type owl:NamedIndividual ,
+                            www:Award ;
+                   www:awardedAt www:BAFTAAwards ;
+                   www:category "Best Costume Design"^^xsd:string ,
+                                "Best Editing"^^xsd:string ,
+                                "Best Makeup and Hair"^^xsd:string ,
+                                "Best Production Design"^^xsd:string ,
+                                "Best Screenplay - Adapted"^^xsd:string ,
+                                "BestAnimatedFilm"^^xsd:string .
+
+
+###  http://www.movieonto.org#BFCCAward
+www:BFCCAward rdf:type owl:NamedIndividual ,
+                       www:Award ;
+              www:awardedAt www:BlackFilmCriticsCircleAward ;
+              www:category "BestAnimatedFilm"^^xsd:string .
+
+
+###  http://www.movieonto.org#BOFCAAward
+www:BOFCAAward rdf:type owl:NamedIndividual ,
+                        www:Award ;
+               www:awardedAt www:BostonOnlineFilmCriticsAssociation ;
+               www:category "BestAnimatedFilm"^^xsd:string .
+
+
+###  http://www.movieonto.org#BenGrant
+www:BenGrant rdf:type owl:NamedIndividual ,
+                      www:ExecutiveProducer .
+
+
+###  http://www.movieonto.org#BestPerformanceinVoiceOverRole
+www:BestPerformanceinVoiceOverRole rdf:type owl:NamedIndividual ,
+                                            www:Award ;
+                                   www:awardedAt www:YoungArtistAwards ;
+                                   www:category "YoungActor/Actress"^^xsd:string .
+
+
+###  http://www.movieonto.org#BlackFilmCriticsCircleAward
+www:BlackFilmCriticsCircleAward rdf:type owl:NamedIndividual ,
+                                         www:AwardCeremony .
+
+
+###  http://www.movieonto.org#BlumhouseProductions
+www:BlumhouseProductions rdf:type owl:NamedIndividual ,
+                                  www:ProductionCompany .
+
+
+###  http://www.movieonto.org#BostonOnlineFilmCriticsAssociation
+www:BostonOnlineFilmCriticsAssociation rdf:type owl:NamedIndividual ,
+                                                www:AwardCeremony .
+
+
+###  http://www.movieonto.org#BrendanMcCarthy
+www:BrendanMcCarthy rdf:type owl:NamedIndividual ,
+                             www:Writer .
+
+
+###  http://www.movieonto.org#BrianKavanaughJones
+www:BrianKavanaughJones rdf:type owl:NamedIndividual ,
+                                 www:Producer ;
+                        www:produced www:Upgrade .
+
+
+###  http://www.movieonto.org#BruceBerman
+www:BruceBerman rdf:type owl:NamedIndividual ,
+                         www:ExecutiveProducer .
+
+
+###  http://www.movieonto.org#BrunoRosato
+www:BrunoRosato rdf:type owl:NamedIndividual ,
+                         www:CastingDirector .
+
+
+###  http://www.movieonto.org#CecilKramer
+www:CecilKramer rdf:type owl:NamedIndividual ,
+                         www:ExecutiveProducer .
+
+
+###  http://www.movieonto.org#CharlesLayton
+www:CharlesLayton rdf:type owl:NamedIndividual ,
+                           www:ExecutiveProducer .
+
+
+###  http://www.movieonto.org#CharlizeTheron
+www:CharlizeTheron rdf:type owl:NamedIndividual ,
+                            www:Actor ;
+                   www:actedIn www:AstroBoy ,
+                               www:MadMaxFuryRoad .
+
+
+###  http://www.movieonto.org#ChrisBuck
+www:ChrisBuck rdf:type owl:NamedIndividual ,
+                       www:Director ;
+              www:directed www:Frozen .
+
+
+###  http://www.movieonto.org#ChristmasThieves
+www:ChristmasThieves rdf:type owl:NamedIndividual ,
+                              schema2:Movie ;
+                     www:belongsTo www:CinemaOfUK ;
+                     www:cinematographyBy www:PatrizioPatrizi ;
+                     www:directedBy www:FrancescoCinquemani ;
+                     www:hasActors www:LorenzoMcGovernZaini ,
+                                   www:MiaMcGovernZaini ,
+                                   www:MichaelMadsen ,
+                                   www:TomArnold ;
+                     www:hasAudience www:Kids ;
+                     www:hasBudget <http://www.movieonto.org#$6626910> ;
+                     www:hasCastingDirector www:BrunoRosato ;
+                     www:hasCertification www:NR ;
+                     www:hasDuration <http://www.movieonto.org#1h17m> ;
+                     www:hasEarning <http://www.movieonto.org#$6856> ;
+                     www:hasExecutiveProducer www:AndreaZoso ;
+                     www:hasGenre www:Animation ,
+                                  www:Comedy ,
+                                  www:Family ;
+                     www:hasIMDBRating <http://www.movieonto.org#3.9> ;
+                     www:hasIMDBReview <http://www.movieonto.org#3Reviews> ;
+                     www:hasLanguage www:English ;
+                     www:hasMetaRating <http://www.movieonto.org#0> ;
+                     www:hasMetaReview <http://www.movieonto.org#0Review> ;
+                     www:hasProductionHouse www:AlMashaelMovies ,
+                                            www:FenixEntertainment ,
+                                            www:ILBEStudios ;
+                     www:hasRottenRating <http://www.movieonto.org#0Percent> ;
+                     www:hasRottenReview <http://www.movieonto.org#0Review> ;
+                     www:musicComposedBy www:VittorioGiannelli ;
+                     www:producedBy www:RiccardoDiPasquale ;
+                     www:productionDesigner www:NelloGiorgetti ;
+                     www:releasedIn <http://www.movieonto.org#2021> ;
+                     www:shootIn www:Italy ;
+                     www:writtenBy www:AndreaFazzini ,
+                                   www:FerdinandoDellOmo ,
+                                   www:MarioBellina ;
+                     schema2:abstract "Two young kids end up spending Christmas eve alone and they mistake two burglars for Santa"^^xsd:string ;
+                     www:IMDBRating "3.9"^^xsd:float ;
+                     www:IMDBReview 3 ;
+                     www:MetaCriticRating 0 ;
+                     www:MetaCriticReview 0 ;
+                     www:RottenTomatoesRatingInPercent 0 ;
+                     www:RottenTomatoesReview 0 ;
+                     www:budget 6626910 ;
+                     www:earning 6856 ;
+                     www:releasingDate "November 29, 2021"^^xsd:string .
+
+
+###  http://www.movieonto.org#ChristopheBeck
+www:ChristopheBeck rdf:type owl:NamedIndividual ,
+                            www:MusicComposer .
+
+
+###  http://www.movieonto.org#ChristopherAward
+www:ChristopherAward rdf:type owl:NamedIndividual ,
+                              www:Award ;
+                     www:awardedAt www:ChristopherAwards ;
+                     www:category "FeatureFilms"^^xsd:string .
+
+
+###  http://www.movieonto.org#ChristopherAwards
+www:ChristopherAwards rdf:type owl:NamedIndividual ,
+                               www:AwardCeremony .
+
+
+###  http://www.movieonto.org#Ciampino
+www:Ciampino rdf:type owl:NamedIndividual ,
+                      schema2:City .
+
+
+###  http://www.movieonto.org#CinemaOfUK
+www:CinemaOfUK rdf:type owl:NamedIndividual ,
+                        www:FilmIndustry .
+
+
+###  http://www.movieonto.org#ColinGibson
+www:ColinGibson rdf:type owl:NamedIndividual ,
+                         www:ProductionDesigner .
+
+
+###  http://www.movieonto.org#Comedy
+www:Comedy rdf:type owl:NamedIndividual ,
+                    www:Genre .
+
+
+###  http://www.movieonto.org#CourtenayValenti
+www:CourtenayValenti rdf:type owl:NamedIndividual ,
+                              www:ExecutiveProducer .
+
+
+###  http://www.movieonto.org#Craigieburn
+www:Craigieburn rdf:type owl:NamedIndividual ,
+                         schema2:City .
+
+
+###  http://www.movieonto.org#DarrenGilford
+www:DarrenGilford rdf:type owl:NamedIndividual ,
+                           www:ProductionDesigner .
+
+
+###  http://www.movieonto.org#David
+www:David rdf:type owl:NamedIndividual ,
+                   www:Writer .
+
+
+###  http://www.movieonto.org#DavidBowers
+www:DavidBowers rdf:type owl:NamedIndividual ,
+                         www:Director ;
+                www:directed www:AstroBoy .
+
+
+###  http://www.movieonto.org#DavidWomersley
+www:DavidWomersley rdf:type owl:NamedIndividual ,
+                            www:ProductionDesigner .
+
+
+###  http://www.movieonto.org#DaxShepard
+www:DaxShepard rdf:type owl:NamedIndividual ,
+                        www:Actor ;
+               www:actedIn www:Idiocracy .
+
+
+###  http://www.movieonto.org#DougMitchell
+www:DougMitchell rdf:type owl:NamedIndividual ,
+                          www:Producer ;
+                 www:produced www:MadMaxFuryRoad .
+
+
+###  http://www.movieonto.org#English
+www:English rdf:type owl:NamedIndividual ,
+                     schema2:Language .
+
+
+###  http://www.movieonto.org#Family
+www:Family rdf:type owl:NamedIndividual ,
+                    www:Genre .
+
+
+###  http://www.movieonto.org#FelicityAbbott
+www:FelicityAbbott rdf:type owl:NamedIndividual ,
+                            www:ProductionDesigner .
+
+
+###  http://www.movieonto.org#FenixEntertainment
+www:FenixEntertainment rdf:type owl:NamedIndividual ,
+                                www:ProductionCompany .
+
+
+###  http://www.movieonto.org#FerdinandoDellOmo
+www:FerdinandoDellOmo rdf:type owl:NamedIndividual ,
+                               www:Writer .
+
+
+###  http://www.movieonto.org#FrancescoCinquemani
+www:FrancescoCinquemani rdf:type owl:NamedIndividual ,
+                                 www:Director ;
+                        www:directed www:ChristmasThieves .
+
+
+###  http://www.movieonto.org#FrancisKao
+www:FrancisKao rdf:type owl:NamedIndividual ,
+                        www:ExecutiveProducer .
+
+
+###  http://www.movieonto.org#FreddieHighmore
+www:FreddieHighmore rdf:type owl:NamedIndividual ,
+                             www:Actor ;
+                    www:actedIn www:AstroBoy .
+
+
+###  http://www.movieonto.org#Frozen
+www:Frozen rdf:type owl:NamedIndividual ,
+                    www:AwardedMovie ;
+           www:awardedIn <http://www.movieonto.org#2013> ,
+                         <http://www.movieonto.org#2014> ;
+           www:belongsTo www:Hollywood ;
+           www:cinematographyBy www:MohitKallianpur ;
+           www:directedBy www:ChrisBuck ,
+                          www:JenniferLee ;
+           www:hasActors www:IdinaMenzel ,
+                         www:JonathanGroff ,
+                         www:JoshGad ,
+                         www:KristenBell ;
+           www:hasAudience www:Kids ;
+           www:hasBudget <http://www.movieonto.org#$150000000> ;
+           www:hasCastingDirector www:JamieSparerRoberts ;
+           www:hasCertification www:PG ;
+           www:hasDuration <http://www.movieonto.org#1h42m> ;
+           www:hasEarning <http://www.movieonto.org#$1284540518> ;
+           www:hasExecutiveProducer www:JohnLasseter ;
+           www:hasGenre www:Adventure ,
+                        www:Animation ,
+                        www:Comedy ;
+           www:hasIMDBRating <http://www.movieonto.org#7.4> ;
+           www:hasIMDBReview <http://www.movieonto.org#1252Reviews> ;
+           www:hasLanguage www:English ;
+           www:hasMetaRating <http://www.movieonto.org#75> ;
+           www:hasMetaReview <http://www.movieonto.org#48Reviews> ;
+           www:hasProductionHouse www:WaltDisneyAnimationStudios ,
+                                  www:WaltDisneyPictures ;
+           www:hasRottenRating <http://www.movieonto.org#90Percent> ;
+           www:hasRottenReview <http://www.movieonto.org#251Reviews> ;
+           www:musicComposedBy www:ChristopheBeck ;
+           www:producedBy www:PeterDelVecho ;
+           www:releasedIn <http://www.movieonto.org#2013> ;
+           www:shootIn www:Norway ;
+           www:wonAward www:BAFTAChildrensAward ,
+                        www:BAFTAFilmAward ,
+                        www:BFCCAward ,
+                        www:BOFCAAward ,
+                        www:GoldDerbyFilmAward ,
+                        www:IGNAward ,
+                        www:LumiereAward ,
+                        www:Oscar ,
+                        www:SierraAward ;
+           www:writtenBy www:HansChristianAndersen ;
+           schema2:abstract "Fearless optimist Anna teams up with rugged mountain man Kristoff and his loyal reindeer Sven and sets off on an epic journey to find her sister Elsa, whose icy powers have trapped the kingdom of Arendelle in eternal winter. Encountering Everest-like conditions, mystical trolls and a hilarious snowman named Olaf, Anna and Kristoff battle the elements in a race to save the kingdom. From the outside Elsa looks poised, regal and reserved, but in reality she lives in fear as she wrestles with a mighty secret: she was born with the power to create ice and snow. It's a beautiful ability, but also extremely dangerous. Haunted by the moment her magic nearly killed her younger sister Anna, Elsa has isolated herself, spending every waking minute trying to suppress her growing powers. Her mounting emotions trigger the magic, accidentally setting off an eternal winter that she can't stop. She fears she's becoming a monster and that no one, not even her sister, can help her."^^xsd:string ;
+           www:IMDBRating "7.4"^^xsd:float ;
+           www:IMDBReview 1252 ;
+           www:MetaCriticRating 75 ;
+           www:MetaCriticReview 48 ;
+           www:RottenTomatoesRatingInPercent 90 ;
+           www:RottenTomatoesReview 251 ;
+           www:budget 150000000 ;
+           www:earning 1284540518 ;
+           www:releasingDate "December 6, 2013"^^xsd:string ;
+           www:winningAward "BAFTAChildrensAward"^^xsd:string ,
+                            "BAFTAFilmAward"^^xsd:string ,
+                            "BFCCAward"^^xsd:string ,
+                            "BOFCAAward"^^xsd:string ,
+                            "ChristopherAward"^^xsd:string ,
+                            "GoldDerbyFilmAward"^^xsd:string ,
+                            "GoldenTrailer"^^xsd:string ,
+                            "IGNAward"^^xsd:string ,
+                            "LumiereAward"^^xsd:string ,
+                            "Oscar"^^xsd:string ,
+                            "SierraAward"^^xsd:string .
+
+
+###  http://www.movieonto.org#FulcrumMediaFinance
+www:FulcrumMediaFinance rdf:type owl:NamedIndividual ,
+                                 www:ProductionCompany .
+
+
+###  http://www.movieonto.org#General
+www:General rdf:type owl:NamedIndividual ,
+                     www:Certification .
+
+
+###  http://www.movieonto.org#George
+www:George rdf:type owl:NamedIndividual ,
+                    www:Producer ;
+           www:produced www:MadMaxFuryRoad .
+
+
+###  http://www.movieonto.org#GeorgeM
+www:GeorgeM rdf:type owl:NamedIndividual ,
+                     www:Writer .
+
+
+###  http://www.movieonto.org#GeorgeMiller
+www:GeorgeMiller rdf:type owl:NamedIndividual ,
+                          www:Director ;
+                 www:directed www:MadMaxFuryRoad .
+
+
+###  http://www.movieonto.org#GoldDerbyAwards
+www:GoldDerbyAwards rdf:type owl:NamedIndividual ,
+                             www:AwardCeremony .
+
+
+###  http://www.movieonto.org#GoldDerbyFilmAward
+www:GoldDerbyFilmAward rdf:type owl:NamedIndividual ,
+                                www:Award ;
+                       www:awardedAt www:GoldDerbyAwards ;
+                       www:category "AnimatedFeature"^^xsd:string ,
+                                    "OriginalSong"^^xsd:string .
+
+
+###  http://www.movieonto.org#GoldenTrailer
+www:GoldenTrailer rdf:type owl:NamedIndividual ,
+                           www:Award ;
+                  www:awardedAt www:GoldenTrailerAwards ;
+                  www:category "BestAnimation/Family"^^xsd:string ,
+                               "BestMusicTVSpot"^^xsd:string .
+
+
+###  http://www.movieonto.org#GoldenTrailerAwards
+www:GoldenTrailerAwards rdf:type owl:NamedIndividual ,
+                                 www:AwardCeremony .
+
+
+###  http://www.movieonto.org#GrahamBurke
+www:GrahamBurke rdf:type owl:NamedIndividual ,
+                         www:ExecutiveProducer .
+
+
+###  http://www.movieonto.org#HansChristianAndersen
+www:HansChristianAndersen rdf:type owl:NamedIndividual ,
+                                   www:Writer .
+
+
+###  http://www.movieonto.org#Hollywood
+www:Hollywood rdf:type owl:NamedIndividual ,
+                       www:FilmIndustry .
+
+
+###  http://www.movieonto.org#HughKeaysByrne
+www:HughKeaysByrne rdf:type owl:NamedIndividual ,
+                            www:Actor ;
+                   www:actedIn www:MadMaxFuryRoad .
+
+
+###  http://www.movieonto.org#IGNAward
+www:IGNAward rdf:type owl:NamedIndividual ,
+                      www:Award ;
+             www:awardedAt www:IGNSummerMovieAward ;
+             www:category "BestAnimatedMovie"^^xsd:string .
+
+
+###  http://www.movieonto.org#IGNSummerMovieAward
+www:IGNSummerMovieAward rdf:type owl:NamedIndividual ,
+                                 www:AwardCeremony .
+
+
+###  http://www.movieonto.org#ILBEStudios
+www:ILBEStudios rdf:type owl:NamedIndividual ,
+                         www:ProductionCompany .
+
+
+###  http://www.movieonto.org#IainSmith
+www:IainSmith rdf:type owl:NamedIndividual ,
+                       www:ExecutiveProducer .
+
+
+###  http://www.movieonto.org#IdinaMenzel
+www:IdinaMenzel rdf:type owl:NamedIndividual ,
+                         www:Actor ;
+                www:actedIn www:Frozen .
+
+
+###  http://www.movieonto.org#Idiocracy
+www:Idiocracy rdf:type owl:NamedIndividual ,
+                       schema2:Movie ;
+              www:belongsTo www:Hollywood ;
+              www:cinematographyBy www:TimSuhrstedt ;
+              www:directedBy www:MikeJudge ;
+              www:hasActors www:DaxShepard ,
+                            www:LukeWilson ,
+                            www:MayaRudolph ,
+                            www:TerryCrews ;
+              www:hasAudience www:Adults ;
+              www:hasBudget <http://www.movieonto.org#$2400000> ;
+              www:hasCastingDirector www:MaryVernieu ;
+              www:hasCertification www:R ;
+              www:hasDuration <http://www.movieonto.org#1h24m> ;
+              www:hasEarning <http://www.movieonto.org#$495303> ;
+              www:hasExecutiveProducer www:MichaelNelson ;
+              www:hasGenre www:Adventure ,
+                           www:Comedy ,
+                           www:SciFi ;
+              www:hasIMDBRating <http://www.movieonto.org#6.5> ;
+              www:hasIMDBReview <http://www.movieonto.org#694Reviews> ;
+              www:hasLanguage www:English ;
+              www:hasMetaRating <http://www.movieonto.org#66> ;
+              www:hasMetaReview <http://www.movieonto.org#12Reviews> ;
+              www:hasProductionHouse www:MajorStudioPartners ,
+                                     www:TernionPictures ,
+                                     www:TwentiethCenturyFox ;
+              www:hasRottenRating <http://www.movieonto.org#71Percent> ;
+              www:hasRottenReview <http://www.movieonto.org#52Reviews> ;
+              www:musicComposedBy www:TheodoreShapiro ;
+              www:producedBy www:Mike ;
+              www:productionDesigner www:DarrenGilford ,
+                                     www:JefferyNoble ;
+              www:releasedIn <http://www.movieonto.org#2007> ;
+              www:shootIn www:UnitedStates ;
+              www:writtenBy www:MikeJ ;
+              schema2:abstract "Corporal Joe Bauers, a decisively average American, is selected as a guinea pig for a top-secret hibernation program but is forgotten, awakening to a future so incredibly moronic he's easily the most intelligent person alive."^^xsd:string ;
+              www:IMDBRating "6.5"^^xsd:float ;
+              www:IMDBReview 694 ;
+              www:MetaCriticRating 66 ;
+              www:MetaCriticReview 12 ;
+              www:RottenTomatoesRatingInPercent 71 ;
+              www:RottenTomatoesReview 52 ;
+              www:budget 2400000 ;
+              www:earning 495303 ;
+              www:releasingDate "January 25, 2007"^^xsd:string .
+
+
+###  http://www.movieonto.org#ImagiAnimationStudios
+www:ImagiAnimationStudios rdf:type owl:NamedIndividual ,
+                                   www:ProductionCompany .
+
+
+###  http://www.movieonto.org#ImagiCrystal
+www:ImagiCrystal rdf:type owl:NamedIndividual ,
+                          www:ProductionCompany .
+
+
+###  http://www.movieonto.org#Italy
+www:Italy rdf:type owl:NamedIndividual ,
+                   schema2:Country ;
+          www:hasCity www:Ciampino ,
+                      www:Italy .
+
+
+###  http://www.movieonto.org#JamieSparerRoberts
+www:JamieSparerRoberts rdf:type owl:NamedIndividual ,
+                                www:CastingDirector .
+
+
+###  http://www.movieonto.org#JasonBlum
+www:JasonBlum rdf:type owl:NamedIndividual ,
+                       www:Producer ;
+              www:produced www:Upgrade .
+
+
+###  http://www.movieonto.org#JeanetteVolturno
+www:JeanetteVolturno rdf:type owl:NamedIndividual ,
+                              www:ExecutiveProducer .
+
+
+###  http://www.movieonto.org#JedPalmer
+www:JedPalmer rdf:type owl:NamedIndividual ,
+                       www:MusicComposer .
+
+
+###  http://www.movieonto.org#JefferyNoble
+www:JefferyNoble rdf:type owl:NamedIndividual ,
+                          www:ProductionDesigner .
+
+
+###  http://www.movieonto.org#Jennifer
+www:Jennifer rdf:type owl:NamedIndividual ,
+                      www:Writer .
+
+
+###  http://www.movieonto.org#JenniferLee
+www:JenniferLee rdf:type owl:NamedIndividual ,
+                         www:Director ;
+                www:directed www:Frozen .
+
+
+###  http://www.movieonto.org#JohnLasseter
+www:JohnLasseter rdf:type owl:NamedIndividual ,
+                          www:ExecutiveProducer .
+
+
+###  http://www.movieonto.org#JohnOttman
+www:JohnOttman rdf:type owl:NamedIndividual ,
+                        www:MusicComposer .
+
+
+###  http://www.movieonto.org#JohnSeale
+www:JohnSeale rdf:type owl:NamedIndividual ,
+                       www:Cinematographer .
+
+
+###  http://www.movieonto.org#JonathanGroff
+www:JonathanGroff rdf:type owl:NamedIndividual ,
+                           www:Actor ;
+                  www:actedIn www:Frozen .
+
+
+###  http://www.movieonto.org#JoshGad
+www:JoshGad rdf:type owl:NamedIndividual ,
+                     www:Actor ;
+            www:actedIn www:Frozen .
+
+
+###  http://www.movieonto.org#KenTsumura
+www:KenTsumura rdf:type owl:NamedIndividual ,
+                        www:ExecutiveProducer .
+
+
+###  http://www.movieonto.org#KennedyMillerProductions
+www:KennedyMillerProductions rdf:type owl:NamedIndividual ,
+                                      www:ProductionCompany .
+
+
+###  http://www.movieonto.org#Kids
+www:Kids rdf:type owl:NamedIndividual ,
+                  schema2:Audience .
+
+
+###  http://www.movieonto.org#KristenBell
+www:KristenBell rdf:type owl:NamedIndividual ,
+                         www:Actor ;
+                www:actedIn www:AstroBoy ,
+                            www:Frozen .
+
+
+###  http://www.movieonto.org#KylieDuFresne
+www:KylieDuFresne rdf:type owl:NamedIndividual ,
+                           www:Producer ;
+                  www:produced www:Upgrade .
+
+
+###  http://www.movieonto.org#LasVegasFilmCriticsSocietyAwards
+www:LasVegasFilmCriticsSocietyAwards rdf:type owl:NamedIndividual ,
+                                              www:AwardCeremony .
+
+
+###  http://www.movieonto.org#Lazio
+www:Lazio rdf:type owl:NamedIndividual ,
+                   schema2:City .
+
+
+###  http://www.movieonto.org#Leigh
+www:Leigh rdf:type owl:NamedIndividual ,
+                   www:Writer .
+
+
+###  http://www.movieonto.org#LeighWhannell
+www:LeighWhannell rdf:type owl:NamedIndividual ,
+                           www:Director ;
+                  www:directed www:Upgrade .
+
+
+###  http://www.movieonto.org#LindaLamontagne
+www:LindaLamontagne rdf:type owl:NamedIndividual ,
+                             www:CastingDirector .
+
+
+###  http://www.movieonto.org#LoganMarshallGreen
+www:LoganMarshallGreen rdf:type owl:NamedIndividual ,
+                                www:Actor ;
+                       www:actedIn www:Upgrade .
+
+
+###  http://www.movieonto.org#LorenzoMcGovernZaini
+www:LorenzoMcGovernZaini rdf:type owl:NamedIndividual ,
+                                  www:Actor ;
+                         www:actedIn www:ChristmasThieves .
+
+
+###  http://www.movieonto.org#LukeWilson
+www:LukeWilson rdf:type owl:NamedIndividual ,
+                        www:Actor ;
+               www:actedIn www:Idiocracy .
+
+
+###  http://www.movieonto.org#LumiereAward
+www:LumiereAward rdf:type owl:NamedIndividual ,
+                          www:Award ;
+                 www:awardedAt <http://www.movieonto.org#3DCreativeArtsAwards> ;
+                 www:category "Best3DFeature"^^xsd:string .
+
+
+###  http://www.movieonto.org#MadMaxFuryRoad
+www:MadMaxFuryRoad rdf:type owl:NamedIndividual ,
+                            www:AwardedMovie ;
+                   www:awardedIn <http://www.movieonto.org#2016> ;
+                   www:belongsTo www:CinemaOfUK ;
+                   www:cinematographyBy www:JohnSeale ;
+                   www:directedBy www:GeorgeMiller ;
+                   www:hasActors www:CharlizeTheron ,
+                                 www:HughKeaysByrne ,
+                                 www:NicholasHoult ,
+                                 www:TomHardy ;
+                   www:hasAudience www:Adults ;
+                   www:hasBudget <http://www.movieonto.org#$150000000> ;
+                   www:hasCastingDirector www:NikkiBarrett ,
+                                          www:RonnaKress ;
+                   www:hasCertification www:R ;
+                   www:hasEarning <http://www.movieonto.org#$415261382> ;
+                   www:hasExecutiveProducer www:BruceBerman ,
+                                            www:CourtenayValenti ,
+                                            www:GrahamBurke ,
+                                            www:IainSmith ,
+                                            www:StevenMnuchin ;
+                   www:hasGenre www:Action ,
+                                www:Adventure ,
+                                www:SciFi ;
+                   www:hasIMDBRating <http://www.movieonto.org#8.1> ;
+                   www:hasIMDBReview <http://www.movieonto.org#2299Reviews> ;
+                   www:hasLanguage www:English ;
+                   www:hasMetaRating <http://www.movieonto.org#90> ;
+                   www:hasMetaReview <http://www.movieonto.org#51> ;
+                   www:hasProductionHouse www:KennedyMillerProductions ,
+                                          www:VillageRoadshowPictures ;
+                   www:hasRottenRating <http://www.movieonto.org#97Percent> ;
+                   www:hasRottenReview <http://www.movieonto.org#438Reviews> ;
+                   www:musicComposedBy www:TomHolkenborg ;
+                   www:producedBy www:DougMitchell ,
+                                  www:George ;
+                   www:productionDesigner www:ColinGibson ;
+                   www:releasedIn <http://www.movieonto.org#2015> ;
+                   www:shootIn www:Namibia ;
+                   www:wonAward www:BAFTAFilmAward ,
+                                www:Oscar ;
+                   www:writtenBy www:BrendanMcCarthy ,
+                                 www:GeorgeM ,
+                                 www:NickLathouris ;
+                   schema2:abstract "In a post-apocalyptic wasteland, a woman rebels against a tyrannical ruler in search for her homeland with the aid of a group of female prisoners, a psychotic worshiper and a drifter named Max."^^xsd:string ;
+                   www:IMDBRating "8.1"^^xsd:float ;
+                   www:IMDBReview 2299 ;
+                   www:MetaCriticRating 90 ;
+                   www:MetaCriticReview 51 ;
+                   www:RottenTomatoesRatingInPercent 97 ;
+                   www:RottenTomatoesReview 438 ;
+                   www:budget 150000000 ;
+                   www:earning 415261382 ;
+                   www:releasingDate "May 14, 2015"^^xsd:string ;
+                   www:winningAward "BAFTA Film Award"^^xsd:string ,
+                                    "Oscar"^^xsd:string .
+
+
+###  http://www.movieonto.org#MajorStudioPartners
+www:MajorStudioPartners rdf:type owl:NamedIndividual ,
+                                 www:ProductionCompany .
+
+
+###  http://www.movieonto.org#MarioBellina
+www:MarioBellina rdf:type owl:NamedIndividual ,
+                          www:Writer .
+
+
+###  http://www.movieonto.org#MaryVernieu
+www:MaryVernieu rdf:type owl:NamedIndividual ,
+                         www:CastingDirector .
+
+
+###  http://www.movieonto.org#MaryannGarger
+www:MaryannGarger rdf:type owl:NamedIndividual ,
+                           www:Producer ;
+                  www:produced www:AstroBoy .
+
+
+###  http://www.movieonto.org#MayaRudolph
+www:MayaRudolph rdf:type owl:NamedIndividual ,
+                         www:Actor ;
+                www:actedIn www:Idiocracy .
+
+
+###  http://www.movieonto.org#MelanieVallejo
+www:MelanieVallejo rdf:type owl:NamedIndividual ,
+                            www:Actor ;
+                   www:actedIn www:Upgrade .
+
+
+###  http://www.movieonto.org#MiaMcGovernZaini
+www:MiaMcGovernZaini rdf:type owl:NamedIndividual ,
+                              www:Actor ;
+                     www:actedIn www:ChristmasThieves .
+
+
+###  http://www.movieonto.org#MichaelMadsen
+www:MichaelMadsen rdf:type owl:NamedIndividual ,
+                           www:Actor ;
+                  www:actedIn www:ChristmasThieves .
+
+
+###  http://www.movieonto.org#MichaelNelson
+www:MichaelNelson rdf:type owl:NamedIndividual ,
+                           www:ExecutiveProducer .
+
+
+###  http://www.movieonto.org#Mike
+www:Mike rdf:type owl:NamedIndividual ,
+                  www:Producer ;
+         www:produced www:Idiocracy .
+
+
+###  http://www.movieonto.org#MikeJ
+www:MikeJ rdf:type owl:NamedIndividual ,
+                   www:Writer .
+
+
+###  http://www.movieonto.org#MikeJudge
+www:MikeJudge rdf:type owl:NamedIndividual ,
+                       www:Director ;
+              www:directed www:Idiocracy .
+
+
+###  http://www.movieonto.org#MohitKallianpur
+www:MohitKallianpur rdf:type owl:NamedIndividual ,
+                             www:Cinematographer .
+
+
+###  http://www.movieonto.org#NC17
+www:NC17 rdf:type owl:NamedIndividual ,
+                  www:Certification .
+
+
+###  http://www.movieonto.org#NR
+www:NR rdf:type owl:NamedIndividual ,
+                www:Certification .
+
+
+###  http://www.movieonto.org#Namibia
+www:Namibia rdf:type owl:NamedIndividual ,
+                     schema2:Country .
+
+
+###  http://www.movieonto.org#NelloGiorgetti
+www:NelloGiorgetti rdf:type owl:NamedIndividual ,
+                            www:ProductionDesigner .
+
+
+###  http://www.movieonto.org#NicholasHoult
+www:NicholasHoult rdf:type owl:NamedIndividual ,
+                           www:Actor ;
+                  www:actedIn www:MadMaxFuryRoad .
+
+
+###  http://www.movieonto.org#NickLathouris
+www:NickLathouris rdf:type owl:NamedIndividual ,
+                           www:Writer .
+
+
+###  http://www.movieonto.org#NicolasCage
+www:NicolasCage rdf:type owl:NamedIndividual ,
+                         www:Actor ;
+                www:actedIn www:AstroBoy .
+
+
+###  http://www.movieonto.org#NikkiBarrett
+www:NikkiBarrett rdf:type owl:NamedIndividual ,
+                          www:CastingDirector .
+
+
+###  http://www.movieonto.org#Norway
+www:Norway rdf:type owl:NamedIndividual ,
+                    schema2:Country .
+
+
+###  http://www.movieonto.org#Oscar
+www:Oscar rdf:type owl:NamedIndividual ,
+                   www:Award ;
+          www:awardedAt www:AcademyAwardUSA ;
+          www:category "Best Achievement In FilmEditing"^^xsd:string ,
+                       "Best Achievement in Costume Design"^^xsd:string ,
+                       "BestAchievementInMusicWrittenForMotionPictures,OriginalSong"^^xsd:string ,
+                       "BestAnimatedFeatureFilmOfTheYear"^^xsd:string .
+
+
+###  http://www.movieonto.org#OutstandingAchievementInCasting
+www:OutstandingAchievementInCasting rdf:type owl:NamedIndividual ,
+                                             www:Award ;
+                                    www:awardedAt www:ArtiosAward ;
+                                    www:category "AnimationFeature"^^xsd:string .
+
+
+###  http://www.movieonto.org#PG
+www:PG rdf:type owl:NamedIndividual ,
+                www:Certification .
+
+
+###  http://www.movieonto.org#PG13
+www:PG13 rdf:type owl:NamedIndividual ,
+                  www:Certification .
+
+
+###  http://www.movieonto.org#PatrizioPatrizi
+www:PatrizioPatrizi rdf:type owl:NamedIndividual ,
+                             www:Cinematographer .
+
+
+###  http://www.movieonto.org#PaulWang
+www:PaulWang rdf:type owl:NamedIndividual ,
+                      www:ExecutiveProducer .
+
+
+###  http://www.movieonto.org#PepeValencia
+www:PepeValencia rdf:type owl:NamedIndividual ,
+                          www:Cinematographer .
+
+
+###  http://www.movieonto.org#PeterDelVecho
+www:PeterDelVecho rdf:type owl:NamedIndividual ,
+                           www:Producer ;
+                  www:produced www:Frozen .
+
+
+###  http://www.movieonto.org#R
+www:R rdf:type owl:NamedIndividual ,
+               www:Certification .
+
+
+###  http://www.movieonto.org#RiccardoDiPasquale
+www:RiccardoDiPasquale rdf:type owl:NamedIndividual ,
+                                www:Producer ;
+                       www:produced www:ChristmasThieves .
+
+
+###  http://www.movieonto.org#RonnaKress
+www:RonnaKress rdf:type owl:NamedIndividual ,
+                        www:CastingDirector .
+
+
+###  http://www.movieonto.org#RosemaryBlight
+www:RosemaryBlight rdf:type owl:NamedIndividual ,
+                            www:ExecutiveProducer .
+
+
+###  http://www.movieonto.org#SamMichlap
+www:SamMichlap rdf:type owl:NamedIndividual ,
+                        www:ProductionDesigner .
+
+
+###  http://www.movieonto.org#SciFi
+www:SciFi rdf:type owl:NamedIndividual ,
+                   www:Genre .
+
+
+###  http://www.movieonto.org#SierraAward
+www:SierraAward rdf:type owl:NamedIndividual ,
+                         www:Award ;
+                www:awardedAt www:LasVegasFilmCriticsSocietyAwards ;
+                www:category "BestAnimatedFilm"^^xsd:string .
+
+
+###  http://www.movieonto.org#StefanDuscio
+www:StefanDuscio rdf:type owl:NamedIndividual ,
+                          www:Cinematographer .
+
+
+###  http://www.movieonto.org#SteveDanielsen
+www:SteveDanielsen rdf:type owl:NamedIndividual ,
+                            www:Actor ;
+                   www:actedIn www:Upgrade .
+
+
+###  http://www.movieonto.org#StevenMnuchin
+www:StevenMnuchin rdf:type owl:NamedIndividual ,
+                           www:ExecutiveProducer .
+
+
+###  http://www.movieonto.org#SummitEntertainment
+www:SummitEntertainment rdf:type owl:NamedIndividual ,
+                                 www:ProductionCompany .
+
+
+###  http://www.movieonto.org#Teenagers
+www:Teenagers rdf:type owl:NamedIndividual ,
+                       schema2:Audience .
+
+
+###  http://www.movieonto.org#TernionPictures
+www:TernionPictures rdf:type owl:NamedIndividual ,
+                             www:ProductionCompany .
+
+
+###  http://www.movieonto.org#TerriTaylor
+www:TerriTaylor rdf:type owl:NamedIndividual ,
+                         www:CastingDirector .
+
+
+###  http://www.movieonto.org#TerryCrews
+www:TerryCrews rdf:type owl:NamedIndividual ,
+                        www:Actor ;
+               www:actedIn www:Idiocracy .
+
+
+###  http://www.movieonto.org#TheodoreShapiro
+www:TheodoreShapiro rdf:type owl:NamedIndividual ,
+                             www:MusicComposer .
+
+
+###  http://www.movieonto.org#Thriller
+www:Thriller rdf:type owl:NamedIndividual ,
+                      www:Genre .
+
+
+###  http://www.movieonto.org#TimSuhrstedt
+www:TimSuhrstedt rdf:type owl:NamedIndividual ,
+                          www:Cinematographer .
+
+
+###  http://www.movieonto.org#TimothyHarris
+www:TimothyHarris rdf:type owl:NamedIndividual ,
+                           www:Writer .
+
+
+###  http://www.movieonto.org#TomArnold
+www:TomArnold rdf:type owl:NamedIndividual ,
+                       www:Actor ;
+              www:actedIn www:ChristmasThieves .
+
+
+###  http://www.movieonto.org#TomHardy
+www:TomHardy rdf:type owl:NamedIndividual ,
+                      www:Actor ;
+             www:actedIn www:MadMaxFuryRoad .
+
+
+###  http://www.movieonto.org#TomHolkenborg
+www:TomHolkenborg rdf:type owl:NamedIndividual ,
+                           www:MusicComposer .
+
+
+###  http://www.movieonto.org#TwentiethCenturyFox
+www:TwentiethCenturyFox rdf:type owl:NamedIndividual ,
+                                 www:ProductionCompany .
+
+
+###  http://www.movieonto.org#UnitedStates
+www:UnitedStates rdf:type owl:NamedIndividual ,
+                          schema2:Country ;
+                 www:hasCity www:Austin .
+
+
+###  http://www.movieonto.org#Upgrade
+www:Upgrade rdf:type owl:NamedIndividual ,
+                     www:NominatedMovie ;
+            www:belongsTo www:Hollywood ;
+            www:cinematographyBy www:StefanDuscio ;
+            www:directedBy www:LeighWhannell ;
+            www:hasActors www:AbbyCraden ,
+                          www:LoganMarshallGreen ,
+                          www:MelanieVallejo ,
+                          www:SteveDanielsen ;
+            www:hasAudience www:Adults ;
+            www:hasBudget <http://www.movieonto.org#$5000000> ;
+            www:hasCastingDirector www:NikkiBarrett ,
+                                   www:TerriTaylor ;
+            www:hasCertification www:R ;
+            www:hasDuration <http://www.movieonto.org#1h40m> ;
+            www:hasEarning <http://www.movieonto.org#$16706680> ;
+            www:hasExecutiveProducer www:BenGrant ,
+                                     www:CharlesLayton ,
+                                     www:JeanetteVolturno ,
+                                     www:RosemaryBlight ;
+            www:hasGenre www:Action ,
+                         www:SciFi ,
+                         www:Thriller ;
+            www:hasIMDBRating <http://www.movieonto.org#7.5> ;
+            www:hasIMDBReview <http://www.movieonto.org#1351Reviews> ;
+            www:hasLanguage www:English ;
+            www:hasMetaRating <http://www.movieonto.org#67> ;
+            www:hasMetaReview <http://www.movieonto.org#33Reviews> ;
+            www:hasProductionHouse www:AutomatikEntertainment ,
+                                   www:BlumhouseProductions ,
+                                   www:FulcrumMediaFinance ;
+            www:hasRottenRating <http://www.movieonto.org#88Percent> ;
+            www:hasRottenReview <http://www.movieonto.org#195Reviews> ;
+            www:musicComposedBy www:JedPalmer ;
+            www:nominatedFor www:BAFTAFilmAward ,
+                             www:Oscar ;
+            www:nominatedIn <http://www.movieonto.org#2019> ;
+            www:producedBy www:BrianKavanaughJones ,
+                           www:JasonBlum ,
+                           www:KylieDuFresne ;
+            www:productionDesigner www:FelicityAbbott ;
+            www:releasedIn <http://www.movieonto.org#2018> ;
+            www:shootIn www:Australia ;
+            www:writtenBy www:Leigh ;
+            schema2:abstract "Set in the near-future, technology controls nearly all aspects of life. But when the world of Grey, a self-labeled technophobe, is turned upside down, his only hope for revenge is an experimental computer chip implant."^^xsd:string ;
+            www:IMDBRating "7.5"^^xsd:float ;
+            www:IMDBReview 1351 ;
+            www:MetaCriticRating 67 ;
+            www:MetaCriticReview 33 ;
+            www:RottenTomatoesRatingInPercent 88 ;
+            www:RottenTomatoesReview 195 ;
+            www:budget 5000000 ;
+            www:earning 16706680 ;
+            www:nominatedAward "BAFTA Film Award"^^xsd:string ,
+                               "Oscar"^^xsd:string ;
+            www:releasingDate "August 31, 2018"^^xsd:string .
+
+
+###  http://www.movieonto.org#VillageRoadshowPictures
+www:VillageRoadshowPictures rdf:type owl:NamedIndividual ,
+                                     www:ProductionCompany .
+
+
+###  http://www.movieonto.org#VittorioGiannelli
+www:VittorioGiannelli rdf:type owl:NamedIndividual ,
+                               www:MusicComposer .
+
+
+###  http://www.movieonto.org#WaltDisneyAnimationStudios
+www:WaltDisneyAnimationStudios rdf:type owl:NamedIndividual ,
+                                        www:ProductionCompany .
+
+
+###  http://www.movieonto.org#WaltDisneyPictures
+www:WaltDisneyPictures rdf:type owl:NamedIndividual ,
+                                www:ProductionCompany .
+
+
+###  http://www.movieonto.org#YoungArtistAwards
+www:YoungArtistAwards rdf:type owl:NamedIndividual ,
+                               www:AwardCeremony .
+
+
+###  http://www.movieonto.org#$1284540518
+<http://www.movieonto.org#$1284540518> rdf:type owl:NamedIndividual ,
+                                                www:WorldWideEarning .
+
+
+###  http://www.movieonto.org#$150000000
+<http://www.movieonto.org#$150000000> rdf:type owl:NamedIndividual ,
+                                               www:Budget .
+
+
+###  http://www.movieonto.org#$16706680
+<http://www.movieonto.org#$16706680> rdf:type owl:NamedIndividual ,
+                                              www:WorldWideEarning .
+
+
+###  http://www.movieonto.org#$2400000
+<http://www.movieonto.org#$2400000> rdf:type owl:NamedIndividual ,
+                                             www:Budget .
+
+
+###  http://www.movieonto.org#$39886986
+<http://www.movieonto.org#$39886986> rdf:type owl:NamedIndividual ,
+                                              www:WorldWideEarning .
+
+
+###  http://www.movieonto.org#$415261382
+<http://www.movieonto.org#$415261382> rdf:type owl:NamedIndividual ,
+                                               www:WorldWideEarning .
+
+
+###  http://www.movieonto.org#$495303
+<http://www.movieonto.org#$495303> rdf:type owl:NamedIndividual ,
+                                            www:WorldWideEarning .
+
+
+###  http://www.movieonto.org#$5000000
+<http://www.movieonto.org#$5000000> rdf:type owl:NamedIndividual ,
+                                             www:Budget .
+
+
+###  http://www.movieonto.org#$65000000
+<http://www.movieonto.org#$65000000> rdf:type owl:NamedIndividual ,
+                                              www:Budget .
+
+
+###  http://www.movieonto.org#$6626910
+<http://www.movieonto.org#$6626910> rdf:type owl:NamedIndividual ,
+                                             www:Budget .
+
+
+###  http://www.movieonto.org#$6856
+<http://www.movieonto.org#$6856> rdf:type owl:NamedIndividual ,
+                                          www:WorldWideEarning .
+
+
+###  http://www.movieonto.org#0
+<http://www.movieonto.org#0> rdf:type owl:NamedIndividual ,
+                                      www:MetaCritic .
+
+
+###  http://www.movieonto.org#0Percent
+<http://www.movieonto.org#0Percent> rdf:type owl:NamedIndividual ,
+                                             www:RottenTomatoes .
+
+
+###  http://www.movieonto.org#0Review
+<http://www.movieonto.org#0Review> rdf:type owl:NamedIndividual ,
+                                            www:MetaCriticReview .
+
+
+###  http://www.movieonto.org#0Reviews
+<http://www.movieonto.org#0Reviews> rdf:type owl:NamedIndividual ,
+                                             www:RottenTomatoesReview .
+
+
+###  http://www.movieonto.org#1h17m
+<http://www.movieonto.org#1h17m> rdf:type owl:NamedIndividual ,
+                                          schema2:Duration .
+
+
+###  http://www.movieonto.org#1h24m
+<http://www.movieonto.org#1h24m> rdf:type owl:NamedIndividual ,
+                                          schema2:Duration .
+
+
+###  http://www.movieonto.org#1h34m
+<http://www.movieonto.org#1h34m> rdf:type owl:NamedIndividual ,
+                                          schema2:Duration .
+
+
+###  http://www.movieonto.org#1h40m
+<http://www.movieonto.org#1h40m> rdf:type owl:NamedIndividual ,
+                                          schema2:Duration .
+
+
+###  http://www.movieonto.org#1h42m
+<http://www.movieonto.org#1h42m> rdf:type owl:NamedIndividual ,
+                                          schema2:Duration .
+
+
+###  http://www.movieonto.org#12Reviews
+<http://www.movieonto.org#12Reviews> rdf:type owl:NamedIndividual ,
+                                              www:MetaCriticReview .
+
+
+###  http://www.movieonto.org#1252Reviews
+<http://www.movieonto.org#1252Reviews> rdf:type owl:NamedIndividual ,
+                                                www:IMDBReview .
+
+
+###  http://www.movieonto.org#1351Reviews
+<http://www.movieonto.org#1351Reviews> rdf:type owl:NamedIndividual ,
+                                                www:IMDBReview .
+
+
+###  http://www.movieonto.org#139Reviews
+<http://www.movieonto.org#139Reviews> rdf:type owl:NamedIndividual ,
+                                               www:RottenTomatoesReview .
+
+
+###  http://www.movieonto.org#195Reviews
+<http://www.movieonto.org#195Reviews> rdf:type owl:NamedIndividual ,
+                                               www:RottenTomatoesReview .
+
+
+###  http://www.movieonto.org#2h
+<http://www.movieonto.org#2h> rdf:type owl:NamedIndividual ,
+                                       schema2:Duration .
+
+
+###  http://www.movieonto.org#2007
+<http://www.movieonto.org#2007> rdf:type owl:NamedIndividual ,
+                                         www:Year .
+
+
+###  http://www.movieonto.org#2009
+<http://www.movieonto.org#2009> rdf:type owl:NamedIndividual ,
+                                         www:Year .
+
+
+###  http://www.movieonto.org#2010
+<http://www.movieonto.org#2010> rdf:type owl:NamedIndividual ,
+                                         www:Year .
+
+
+###  http://www.movieonto.org#2013
+<http://www.movieonto.org#2013> rdf:type owl:NamedIndividual ,
+                                         www:Year .
+
+
+###  http://www.movieonto.org#2014
+<http://www.movieonto.org#2014> rdf:type owl:NamedIndividual ,
+                                         www:Year .
+
+
+###  http://www.movieonto.org#2015
+<http://www.movieonto.org#2015> rdf:type owl:NamedIndividual ,
+                                         www:Year .
+
+
+###  http://www.movieonto.org#2016
+<http://www.movieonto.org#2016> rdf:type owl:NamedIndividual ,
+                                         www:Year .
+
+
+###  http://www.movieonto.org#2018
+<http://www.movieonto.org#2018> rdf:type owl:NamedIndividual ,
+                                         www:Year .
+
+
+###  http://www.movieonto.org#2019
+<http://www.movieonto.org#2019> rdf:type owl:NamedIndividual ,
+                                         www:Year .
+
+
+###  http://www.movieonto.org#2021
+<http://www.movieonto.org#2021> rdf:type owl:NamedIndividual ,
+                                         www:Year .
+
+
+###  http://www.movieonto.org#22Reviews
+<http://www.movieonto.org#22Reviews> rdf:type owl:NamedIndividual ,
+                                              www:MetaCriticReview .
+
+
+###  http://www.movieonto.org#2299Reviews
+<http://www.movieonto.org#2299Reviews> rdf:type owl:NamedIndividual ,
+                                                www:IMDBReview .
+
+
+###  http://www.movieonto.org#251Reviews
+<http://www.movieonto.org#251Reviews> rdf:type owl:NamedIndividual ,
+                                               www:RottenTomatoesReview .
+
+
+###  http://www.movieonto.org#3DCreativeArtsAwards
+<http://www.movieonto.org#3DCreativeArtsAwards> rdf:type owl:NamedIndividual ,
+                                                         www:AwardCeremony .
+
+
+###  http://www.movieonto.org#3Reviews
+<http://www.movieonto.org#3Reviews> rdf:type owl:NamedIndividual ,
+                                             www:IMDBReview .
+
+
+###  http://www.movieonto.org#3.9
+<http://www.movieonto.org#3.9> rdf:type owl:NamedIndividual ,
+                                        www:IMDB .
+
+
+###  http://www.movieonto.org#33Reviews
+<http://www.movieonto.org#33Reviews> rdf:type owl:NamedIndividual ,
+                                              www:MetaCriticReview .
+
+
+###  http://www.movieonto.org#438Reviews
+<http://www.movieonto.org#438Reviews> rdf:type owl:NamedIndividual ,
+                                               www:RottenTomatoesReview .
+
+
+###  http://www.movieonto.org#48Reviews
+<http://www.movieonto.org#48Reviews> rdf:type owl:NamedIndividual ,
+                                              www:MetaCriticReview .
+
+
+###  http://www.movieonto.org#50Percent
+<http://www.movieonto.org#50Percent> rdf:type owl:NamedIndividual ,
+                                              www:RottenTomatoes .
+
+
+###  http://www.movieonto.org#51
+<http://www.movieonto.org#51> rdf:type owl:NamedIndividual ,
+                                       www:MetaCriticReview .
+
+
+###  http://www.movieonto.org#52Reviews
+<http://www.movieonto.org#52Reviews> rdf:type owl:NamedIndividual ,
+                                              www:RottenTomatoesReview .
+
+
+###  http://www.movieonto.org#53
+<http://www.movieonto.org#53> rdf:type owl:NamedIndividual ,
+                                       www:MetaCritic .
+
+
+###  http://www.movieonto.org#6.2
+<http://www.movieonto.org#6.2> rdf:type owl:NamedIndividual ,
+                                        www:IMDB .
+
+
+###  http://www.movieonto.org#6.5
+<http://www.movieonto.org#6.5> rdf:type owl:NamedIndividual ,
+                                        www:IMDB .
+
+
+###  http://www.movieonto.org#66
+<http://www.movieonto.org#66> rdf:type owl:NamedIndividual ,
+                                       www:MetaCritic .
+
+
+###  http://www.movieonto.org#67
+<http://www.movieonto.org#67> rdf:type owl:NamedIndividual ,
+                                       www:MetaCritic .
+
+
+###  http://www.movieonto.org#694Reviews
+<http://www.movieonto.org#694Reviews> rdf:type owl:NamedIndividual ,
+                                               www:IMDBReview .
+
+
+###  http://www.movieonto.org#7.4
+<http://www.movieonto.org#7.4> rdf:type owl:NamedIndividual ,
+                                        www:IMDB .
+
+
+###  http://www.movieonto.org#7.5
+<http://www.movieonto.org#7.5> rdf:type owl:NamedIndividual ,
+                                        www:IMDB .
+
+
+###  http://www.movieonto.org#71Percent
+<http://www.movieonto.org#71Percent> rdf:type owl:NamedIndividual ,
+                                              www:RottenTomatoes .
+
+
+###  http://www.movieonto.org#75
+<http://www.movieonto.org#75> rdf:type owl:NamedIndividual ,
+                                       www:MetaCritic .
+
+
+###  http://www.movieonto.org#8.1
+<http://www.movieonto.org#8.1> rdf:type owl:NamedIndividual ,
+                                        www:IMDB .
+
+
+###  http://www.movieonto.org#88Percent
+<http://www.movieonto.org#88Percent> rdf:type owl:NamedIndividual ,
+                                              www:RottenTomatoes .
+
+
+###  http://www.movieonto.org#90
+<http://www.movieonto.org#90> rdf:type owl:NamedIndividual ,
+                                       www:MetaCritic .
+
+
+###  http://www.movieonto.org#90Percent
+<http://www.movieonto.org#90Percent> rdf:type owl:NamedIndividual ,
+                                              www:RottenTomatoes .
+
+
+###  http://www.movieonto.org#96Reviews
+<http://www.movieonto.org#96Reviews> rdf:type owl:NamedIndividual ,
+                                              www:IMDBReview .
+
+
+###  http://www.movieonto.org#97Percent
+<http://www.movieonto.org#97Percent> rdf:type owl:NamedIndividual ,
+                                              www:RottenTomatoes .
+
+
+#################################################################
+#    Annotations
+#################################################################
+
+www:IMDBReview rdfs:label "IMDBReview" .
+
+
+www:MetaCriticReview rdfs:label "MetaCriticReview" .
+
+
+www:RottenTomatoesReview rdfs:label "RottenTomatoesReview" .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
